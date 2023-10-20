@@ -18,7 +18,6 @@ library(ggrepel) ## for help positioning scatterplot labels
 library(taylor) ## for custom taylor swift palettes
 library(showtext) ## for custom fonts
 library(ggtext) ## for combining bold and not bold fonts on axis label
-library(glue) ## for combining bold and not bold fonts on axis label
 
 ## to review current list of options, if needed
 #font_families_google()
@@ -60,7 +59,8 @@ valence_vs_danceability <- taylor_album_songs %>%
   labs(x = "", 
        y = "",
        title = "Which Taylor Swift songs are most danceable?",
-       subtitle = "Exploring happier vs. sadder TSwift songs based on their danceability") +
+       subtitle = "Exploring happier vs. sadder TSwift songs based on their danceability",
+       caption = "Valence and Danceability assessed based on Spotify API") +
   theme_minimal() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
@@ -72,7 +72,8 @@ valence_vs_danceability <- taylor_album_songs %>%
                                   size = rel(1.5), 
                                   face = "bold"),
         axis.text.x = element_markdown(),
-        axis.text.y = element_markdown()) +
+        axis.text.y = element_markdown(),
+        plot.caption = element_text(size = rel(0.5))) +
   scale_x_continuous(breaks = c(0.4, .8),
                      labels = c("**Less danceable**<br>(per Spotify)", 
                                 "**More danceable**<br>(per Spotify)")) +

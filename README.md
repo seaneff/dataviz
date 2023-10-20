@@ -9,6 +9,4 @@ New data are posted every Monday morning. You can use these data to create a vis
 
 ## Data Viz
 
-I'm using this as an opportunity to learn and practice some new things in R, especially data visualization. I'm not going to update every week, but I'll post code for the challenges I do complete. See below for some examples of figures I've created based on this challenge (all code is also contained in this github repo).
-
 ![Figure illustrating the relationship between valence and danceability for Taylor Swift songs, highlighting some of the most and least danceable songs, as well as some of the happiest and saddest songs](2023/week42_taylorswift/valence_vs_danceability.png)

@@ -11,4 +11,6 @@ New data are posted every Monday morning. You can use these data to create a vis
 
 ![Figure illustrating the relationship between valence and danceability for Taylor Swift songs, highlighting some of the most and least danceable songs, as well as some of the happiest and saddest songs](2023/week42_taylorswift/valence_vs_danceability.png)
 
+---
+
 ![Figure illustrating the percentage of annual statewide votes for the US House of Representatives, by party (1976-2006)](2023/week43_electionresults/pct_votes_by_state.png)

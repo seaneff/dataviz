@@ -80,7 +80,7 @@ valence_vs_danceability <- taylor_album_songs %>%
   scale_y_continuous(breaks = c(0.2, 0.9),
                      labels = c("**Lower valence**<br>(e.g., sad, depressed, angry)", 
                                 "**Higher valence**<br>(e.g., happy, cheerful, euphoric)")) +
-  scale_alpha(range = c(0.2, 1)) +
+  scale_alpha(range = c(0.3, 1)) +
   scale_color_gradient(low = "#0000FF", high = "#EA5F94") +
   geom_text_repel(size = 3, min.segment.length = 0.1) 
 valence_vs_danceability

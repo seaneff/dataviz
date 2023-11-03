@@ -13,8 +13,14 @@ New data are posted every Monday morning. You can use these data to create a vis
 
 ---
 
-![Figure illustrating the percentage of annual statewide votes for the US House of Representatives, by party (1976-2006)](2023/week45_electionresults/pct_votes_by_state.png)
+![Figure illustrating risk of pulmonary embolism across a number of risk factors](2023/week43_risk/pe_risk.png)
 
 ---
 
 ![Figure illustrating key themes in Snopes horror urban legends](2023/week44_horror_legends/scary_snopes.png)
+
+---
+
+![Figure illustrating the percentage of annual statewide votes for the US House of Representatives, by party (1976-2006)](2023/week45_electionresults/pct_votes_by_state.png)
+
+---

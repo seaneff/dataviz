@@ -24,3 +24,9 @@ New data are posted every Monday morning. You can use these data to create a vis
 ![Figure illustrating the percentage of annual statewide votes for the US House of Representatives, by party (1976-2006)](2023/week45_electionresults/pct_votes_by_state.png)
 
 ---
+
+
+![Figure sales data by age bracket during Diwali](2023/week46_diwali/diwali_stacked_bar.png)
+
+---
+

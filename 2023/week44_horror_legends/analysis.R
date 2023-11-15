@@ -148,7 +148,7 @@ label_data$angle <- ifelse(angle < -90, angle+180, angle)
 # data for base lines
 base_data <- counts %>% 
   group_by(category) %>% 
-  summarize(start = min(id), end = max(id) - empty_bars) %>% 
+  summarize(start = min(id), end = max(id) - empty_bar) %>% 
   rowwise() %>% 
   mutate(title = mean(c(start, end)))
 
@@ -166,11 +166,11 @@ circle_bar <- counts %>%
   ggplot() +
   
   # add ticks for 10 - 50%,
-  geom_segment(data = grid_data, aes(x = end, y = 40, xend = start, yend = 40), colour = "gray90", alpha=1, size=0.3 , inherit.aes = FALSE ) +
-  geom_segment(data = grid_data, aes(x = end, y = 30, xend = start, yend = 30), colour = "gray90", alpha=1, size=0.3 , inherit.aes = FALSE ) +
-  geom_segment(data = grid_data, aes(x = end, y = 20, xend = start, yend = 20), colour = "gray90", alpha=1, size=0.3 , inherit.aes = FALSE ) +
-  geom_segment(data = grid_data, aes(x = end, y = 10, xend = start, yend = 10), colour = "gray90", alpha=1, size=0.3 , inherit.aes = FALSE ) +
-  geom_segment(data = grid_data, aes(x = end, y = 0, xend = start, yend = 0), colour = "gray90", alpha=1, size=0.3 , inherit.aes = FALSE ) +
+  geom_segment(data = grid_data, aes(x = end, y = 40, xend = start, yend = 40), colour = "gray90", linewidth = 0.3 , inherit.aes = FALSE ) +
+  geom_segment(data = grid_data, aes(x = end, y = 30, xend = start, yend = 30), colour = "gray90", linewidth = 0.3 , inherit.aes = FALSE ) +
+  geom_segment(data = grid_data, aes(x = end, y = 20, xend = start, yend = 20), colour = "gray90", linewidth = 0.3 , inherit.aes = FALSE ) +
+  geom_segment(data = grid_data, aes(x = end, y = 10, xend = start, yend = 10), colour = "gray90", linewidth = 0.3 , inherit.aes = FALSE ) +
+  geom_segment(data = grid_data, aes(x = end, y = 0, xend = start, yend = 0),   colour = "gray90", linewidth = 0.3 , inherit.aes = FALSE ) +
   
   # add text showing the value of each line plotted above
   ggplot2::annotate("text", x = rep(max(counts$id), 5), y = seq(from = 0, to = 40, by = 10), 
@@ -185,9 +185,8 @@ circle_bar <- counts %>%
   
   ## specify titles and captions
   labs(title = "We are terrified of death, disease, creepy food, and insects",
-       subtitle = "Frequently mentioned creepy topics in urban lengends (1997-2023)",
+       subtitle = "Frequently mentioned creepy topics in urban legends (1997-2023)",
        caption = "Based on analysis of data from Snopes horror legends (1997-2023)\npercents calculated as percent of 253 horror urban legends that mentioned a given topic based on inductive coding") + 
-  
   ## specify theme
   theme_minimal() +
    theme(legend.position = "none", ## no legend
@@ -195,9 +194,7 @@ circle_bar <- counts %>%
          axis.text = element_blank(), ## avoid weird polar axis
          axis.title = element_blank(), ## avoid x and y axis labels
          panel.grid = element_blank(), ## no grid
-         plot.title = element_text(hjust = 0.5,
-                                   size = rel(1.5),  ## make it bigger
-                                   face = "bold"), ## center title
+         plot.title = element_text(hjust = 0.5, face = "bold"), ## center title, make it bold
          plot.subtitle = element_text(hjust = 0.5), ## center subtitle
          plot.caption = element_text(size = rel(0.5))) + ## make caption comparably smaller 
   
@@ -219,7 +216,6 @@ circle_bar <- counts %>%
   scale_fill_identity() +
   ## text colors can align to category palette 
   scale_color_manual(values = category_palette)
-
 
 ggsave(plot = circle_bar,
        filename = "scary_snopes.png", 

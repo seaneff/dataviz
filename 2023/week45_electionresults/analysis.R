@@ -123,9 +123,10 @@ us_facet <- data_wide %>%
         axis.line = element_blank(), ## no axis line
         axis.ticks = element_blank(), ## no axis ticks
         plot.title = element_markdown(hjust = 0.5, ## center the title,
-                                      size = rel(1.5),  ## make it bigger
+                                      size = rel(2),  ## make it bigger
                                       face = "bold"), ## make it bold
-        plot.subtitle = element_markdown(hjust = 0.5), ## center the subtitle
+        plot.subtitle = element_markdown(hjust = 0.5, ## center the subtitle
+                                         size = rel(1.5)), ## make it bigger
         plot.caption = element_text(size = rel(0.75)),## make caption comparably smaller
         legend.direction = "horizontal", ## legend options listed horizontally
         legend.position = "top" ## legend on top

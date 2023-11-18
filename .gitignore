@@ -51,5 +51,6 @@ rsconnect/
 ## DS Store
 .DS_Store
 
-## Data files
+## Data files or citations
 *.dta
+*.pdf

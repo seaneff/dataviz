@@ -93,7 +93,7 @@ overall_figure <- data_long %>%
   ## specify titles and captions
   labs(title = "What do Australians find helpful about their digital health records?",
        subtitle = "Results from a  national survey of the Australian general population\nand communities affected by HIV and sexually transmissible infections",
-       caption = "",
+       caption = "Based on data from Holt M, MacGibbon J, Smith AK, Broady TR, Davis MD, Newman CE. Knowledge of Australia’s My Health\nRecord and factors associated with opting out: Results from a national survey of the Australian general population\nand communities affected by HIV and sexually transmissible infections. PLOS Digital Health. 2023 Mar 1;2(3).",
        x = "\nPercent of respondents",
        y = "") +
   scale_x_continuous(labels = scales::percent) +
@@ -102,8 +102,11 @@ overall_figure <- data_long %>%
   theme(text = element_text(family = "Barlow", colour = text_col), ## fonts should be Barlow
         plot.title = element_text(face = "bold", size = rel(1.1)), ## make title bold and somewhat bigger
         axis.text = element_text(size = rel(1)), 
+        plot.caption = element_text(size = rel(0.5)), 
         axis.title = element_text(size = rel(1.2)), ## make axis title larger
         plot.subtitle = element_text(size = rel(1.1))) ## make subtitle larger
+
+overall_figure
 
 #######################################################################
 ### Save Images #######################################################

@@ -32,5 +32,10 @@ New data are posted every Monday morning. You can use these data to create a vis
 
 ![Barchart showing the aspects of their digital health records that Austrailian survey respondents found helpful](2023/20231117_digitalhealthtrust/digital_health_interest_overall.png)
 
+---
+
+![Faceeted barchart describing characteristics of clinical studies for FDA-authorized digital therapeutic products](2023/20231118_pdtauthorizations/RCT_stats.png)
+
+---
 
 

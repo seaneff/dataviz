@@ -30,7 +30,7 @@ mpox <- read.csv("https://raw.githubusercontent.com/owid/monkeypox/main/owid-mon
 mpox$date <- as.Date(mpox$date)
 
 ## create artifacts to make plot of cumulative confirmed caseload
-mpox$color_cumulative <- "gray75"
+mpox$color_cumulative <- "gray85"
 mpox$label_cumulative <- ""
 
 mpox[which(mpox$location == "Gibraltar"),]$color_cumulative <- "#172869"
@@ -60,7 +60,7 @@ gg_record(
 text_col <- "grey1"
 
 #######################################################################
-### Make figure #######################################################
+### Make figure: cumulative ###########################################
 #######################################################################
 
 cumulative <- ggplot(mpox, aes(x = date, y = total_cases_per_million, group = location, color = color_cumulative)) +
@@ -72,7 +72,7 @@ cumulative <- ggplot(mpox, aes(x = date, y = total_cases_per_million, group = lo
        subtitle = "Gibraltar, Spain, and Peru have the highest\ncumulative per capita confirmed caseloads",
        caption = "based on confirmed mpox cases as of November 2023 based on data reported to WHO",
        x = "",
-       y = "Confirmed mpox cases\nper million population (cumulative)\n") +
+       y = "Confirmed mpox cases\nper million population (cumulative)") +
   scale_x_date(date_labels = "%b %Y", 
                breaks = c(as.Date("2022-07-01"),
                           as.Date("2022-10-01"),
@@ -84,13 +84,15 @@ cumulative <- ggplot(mpox, aes(x = date, y = total_cases_per_million, group = lo
 theme(text = element_text(family = "Barlow", colour = text_col), ## fonts should be Barlow, other than title
         plot.title = element_text(face = "bold", size = rel(1.5), hjust = 0.5), ## make title bold, centered, and larger
         plot.subtitle = element_text(size = rel(1.1), hjust = 0.5),
-        axis.text = element_text(size = rel(1)), 
-        strip.text = element_text(size = rel(1.1), face = "bold"),
-        axis.title = element_text(size = rel(1.2)),  ## make axis title larger 
+        axis.text = element_text(size = rel(0.9)), 
+        axis.title = element_text(size = rel(0.9)),  ## make axis title larger 
         plot.caption = element_text(size = rel(0.7)),
-        panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank(),
-        panel.background = element_blank()) +
+        panel.grid.major.y = element_blank(), 
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.x = element_line(size = 0.2, color = "gray90"),
+        panel.grid.minor.x = element_blank(), 
+        panel.background = element_blank(),
+        axis.ticks.length  = unit(0.5, "cm")) +
   geom_dl(aes(label = label_cumulative), 
           method = "last.points") 
 
@@ -102,12 +104,14 @@ cumulative
 
 ggsave(plot = cumulative,
        filename = "cumulative_monkeypox.png", 
-       dpi = 350, height = 5, width = 7, units = "in",
+       dpi = 350, height = 4, width = 6.5, units = "in",
        bg = 'white')
 
 #######################################################################
 ### Save GIF ##########################################################
 #######################################################################
+
+gg_stop_recording()
 
 gg_playback(
   name = file.path("figure_versions/figure_versions.gif"),

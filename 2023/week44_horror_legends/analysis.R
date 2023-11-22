@@ -198,8 +198,8 @@ circle_bar <- counts %>%
          axis.text = element_blank(), ## avoid weird polar axis
          axis.title = element_blank(), ## avoid x and y axis labels
          panel.grid = element_blank(), ## no grid
-         plot.title = element_text(hjust = 0.5, face = "bold", size = rel(1.5)), ## center title, make it bold
-         plot.subtitle = element_text(hjust = 0.5, size = rel(1.3)), ## center subtitle
+         plot.title = element_text(hjust = 0.5, face = "bold", size = rel(1.1)), ## center title, make it bold
+         plot.subtitle = element_text(hjust = 0.5, size = rel(1.1)), ## center subtitle
          plot.caption = element_text(size = rel(0.65))) + ## make caption comparably smaller 
   
   ## add labels on top of the bars

@@ -15,7 +15,8 @@
 library(tidyverse) ## to format/restructure/plot data
 library(camcorder) ## for making gif of figure development
 library(scales) ## for commas on the x axis
-library(directlabels)
+library(directlabels) ## for labels to right of lines
+library(gridExtra) ## to position plots in a grid
 
 #######################################################################
 ### Load data #########################################################
@@ -29,9 +30,12 @@ mpox <- read.csv("https://raw.githubusercontent.com/owid/monkeypox/main/owid-mon
 
 mpox$date <- as.Date(mpox$date)
 
-## create artifacts to make plot of cumulative confirmed caseload
+## create artifacts to make plot of cumulative and increasing confirmed caseload
 mpox$color_cumulative <- "gray85"
 mpox$label_cumulative <- ""
+
+mpox$color_increasing <-  "gray85"
+mpox$label_increasing <- ""
 
 mpox[which(mpox$location == "Gibraltar"),]$color_cumulative <- "#172869"
 mpox[which(mpox$location == "Spain"),]$color_cumulative <- "#0076BB"
@@ -44,14 +48,14 @@ mpox[which(mpox$location == "Peru"),]$label_cumulative <- "Peru"
 ### Start recording ###################################################
 #######################################################################
 
-gg_record(
-  dir = file.path("figure_versions"),
-  device = "png",
-  width = 7,
-  height = 5,
-  units = "in",
-  dpi = 300
-)
+# gg_record(
+#   dir = file.path("figure_versions"),
+#   device = "png",
+#   width = 7,
+#   height = 5,
+#   units = "in",
+#   dpi = 300
+# )
 
 #######################################################################
 ### Define plot figures: colors  ######################################
@@ -89,12 +93,12 @@ theme(text = element_text(family = "Barlow", colour = text_col), ## fonts should
         plot.caption = element_text(size = rel(0.7)),
         panel.grid.major.y = element_blank(), 
         panel.grid.minor.y = element_blank(),
-        panel.grid.major.x = element_line(size = 0.2, color = "gray90"),
+        panel.grid.major.x = element_line(linewidth = 0.2, color = "gray90"),
         panel.grid.minor.x = element_blank(), 
         panel.background = element_blank(),
         axis.ticks.length  = unit(0.5, "cm")) +
   geom_dl(aes(label = label_cumulative), 
-          method = "last.points") 
+          method = list("last.points", cex = 0.85)) 
 
 cumulative
 
@@ -103,7 +107,7 @@ cumulative
 #######################################################################
 
 ggsave(plot = cumulative,
-       filename = "cumulative_monkeypox.png", 
+       filename = "cumulative_monkeypox.png",
        dpi = 350, height = 4, width = 6.5, units = "in",
        bg = 'white')
 
@@ -111,12 +115,12 @@ ggsave(plot = cumulative,
 ### Save GIF ##########################################################
 #######################################################################
 
-gg_stop_recording()
+#gg_stop_recording()
 
-gg_playback(
-  name = file.path("figure_versions/figure_versions.gif"),
-  first_image_duration = 4,
-  last_image_duration = 20,
-  frame_duration = .25,
-  background = "white"
-)
+# gg_playback(
+#   name = file.path("figure_versions/figure_versions.gif"),
+#   first_image_duration = 4,
+#   last_image_duration = 20,
+#   frame_duration = .25,
+#   background = "white"
+# )

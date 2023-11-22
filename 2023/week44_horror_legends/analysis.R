@@ -152,6 +152,8 @@ base_data <- counts %>%
   rowwise() %>% 
   mutate(title = mean(c(start, end)))
 
+base_data$bump = c(-18, -18, -18, -18, -18, -21, -18)
+
 # data for grid (scales)
 grid_data <- base_data
 grid_data$end <- grid_data$end[ c( nrow(grid_data), 1:nrow(grid_data)-1)] + 1
@@ -175,7 +177,8 @@ circle_bar <- counts %>%
   # add text showing the value of each line plotted above
   ggplot2::annotate("text", x = rep(max(counts$id), 5), y = seq(from = 0, to = 40, by = 10), 
                     label = paste(seq(from = 0, to = 40, by = 10), "%", sep = ""),
-                    color = "gray50", size = 2 , angle = 0, hjust = 1.2) +
+                    color = "gray50", size = rel(2.5) , angle = 0, hjust = 1.2) +
+  
   ## plot bars
   geom_bar(aes(x = id, y = pct*100, fill = bar_color), stat = "identity", alpha = 1) +
   
@@ -187,6 +190,7 @@ circle_bar <- counts %>%
   labs(title = "We are terrified of death, disease, creepy food, and insects",
        subtitle = "Frequently mentioned creepy topics in urban legends (1997-2023)",
        caption = "Based on analysis of data from Snopes horror legends (1997-2023)\npercents calculated as percent of 253 horror urban legends that mentioned a given topic based on inductive coding") + 
+  
   ## specify theme
   theme_minimal() +
    theme(legend.position = "none", ## no legend
@@ -194,13 +198,13 @@ circle_bar <- counts %>%
          axis.text = element_blank(), ## avoid weird polar axis
          axis.title = element_blank(), ## avoid x and y axis labels
          panel.grid = element_blank(), ## no grid
-         plot.title = element_text(hjust = 0.5, face = "bold"), ## center title, make it bold
-         plot.subtitle = element_text(hjust = 0.5), ## center subtitle
-         plot.caption = element_text(size = rel(0.5))) + ## make caption comparably smaller 
+         plot.title = element_text(hjust = 0.5, face = "bold", size = rel(1.5)), ## center title, make it bold
+         plot.subtitle = element_text(hjust = 0.5, size = rel(1.3)), ## center subtitle
+         plot.caption = element_text(size = rel(0.65))) + ## make caption comparably smaller 
   
   ## add labels on top of the bars
   geom_text(data = label_data, aes(x = id, y = pct*100, label = label_factor, hjust = hjust, color = category), 
-            size = 2, 
+            size = rel(2.5), 
             angle = label_data$angle, 
             inherit.aes = FALSE ) +
   
@@ -208,8 +212,10 @@ circle_bar <- counts %>%
    geom_segment(data = base_data, aes(x = start, y = -5, xend = end, yend = -5, color = category), 
                 alpha = 0.8, 
                 size = 0.6, inherit.aes = FALSE)  +
-   geom_text(data = base_data, aes(x = title, y = -18, label = category, color = category),
-             alpha = 0.8, size = 2, 
+  
+  ## Add category labels
+   geom_text(data = base_data, aes(x = title, y = bump, label = category, color = category),
+             alpha = 0.8,  size = rel(2.75), 
              inherit.aes = FALSE) +
   
   ## allow colors to be input as part of the data
@@ -217,7 +223,12 @@ circle_bar <- counts %>%
   ## text colors can align to category palette 
   scale_color_manual(values = category_palette)
 
+#######################################################################
+### Save figure ######################################################
+#######################################################################
+
 ggsave(plot = circle_bar,
        filename = "scary_snopes.png", 
        dpi = 350, height = 6, width = 8, units = "in",
        bg = 'white')
+

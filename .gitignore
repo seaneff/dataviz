@@ -54,3 +54,6 @@ rsconnect/
 ## Data files or citations
 *.dta
 *.pdf
+
+## Files used to generate GIFs
+**/figure_versions/*

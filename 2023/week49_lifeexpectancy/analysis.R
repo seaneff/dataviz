@@ -63,16 +63,17 @@ le_line <- data %>%
   geom_line() +
   scale_color_manual(values = color_palette) +
   ## specify titles and captions
-  labs(title = "Life expectancy is a function of country income",
+  labs(title = "Life expectancy depends on country income (and always has)",
        x = "",
        y = "Average life expectancy\n(years)",
        subtitle = "Life expectency data, per country, from 1950-present",
        color = "World Bank income group", 
-       caption = "Life expectancy data from Our World in Data as of 2023 and income group data from World Bank as of 2019") + 
+       caption = "Life expectancy data from Our World in Data and income group data from World Bank as of 2019") + 
   theme_minimal() +
   theme(text = element_text(colour = text_col, family = "Barlow"),
-        plot.title = element_markdown(size = rel(1.25),  ## make title bigger
+        plot.title = element_text(size = rel(1.5),  ## make title bigger
                                       face = "bold"), ## make title bold
+        plot.subtitle = element_text(size = rel(1.25)),
         plot.caption = element_text(size = rel(0.75)), ## make caption slightly smaller
         legend.position = "top")  ## legend on top) 
 

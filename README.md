@@ -43,4 +43,11 @@ New data are posted every Monday morning. You can use these data to create a vis
 ---
 
 
+![Line chart showing global life-expectancy data from 1950-present, per country](2023/week49_lifeexpectancy/le_line.png)
+
+---
+
+![Boxplot showing average response times for ambulances vs. drones in a prospective observational study](2023/otherdata4_droneaed/drone_box.png)
+
+---
 

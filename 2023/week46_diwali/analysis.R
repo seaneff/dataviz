@@ -6,10 +6,6 @@
 ## Summary: https://www.kaggle.com/datasets/saadharoon27/diwali-sales-dataset
 ## "The data this week comes from sales data for a retail store during the Diwali festival period in India."
 
-## Idea: What percent of the population votes democratic
-  
-## Inspiration sources: 
-## 
 #######################################################################
 ### Load required libraries and fonts #################################
 #######################################################################

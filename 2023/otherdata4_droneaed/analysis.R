@@ -79,5 +79,6 @@ drone_box
 
 ggsave(plot = drone_box,
        filename = "drone_box.png", 
-       dpi = 350, height = 4, width = 6.2, units = "in",
+       dpi = 350, height = 4, width = 6.4, units = "in",
        bg = 'white')
+

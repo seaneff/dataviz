@@ -86,6 +86,7 @@ arrows_right <-
 
 
 
+#edu_dot <- 
 edu %>%
   filter(income_flag != "Cities") %>%
   filter(complete.cases(income_flag)) %>%
@@ -108,17 +109,18 @@ edu %>%
     color = "gray20", curvature = 0.2,
     inherit.aes = FALSE) +
   annotate("text", x = edu[which(edu$town11nm == "Thurnscoe BUASD"),]$education_score - .2, 
-           y = 3.53, label = "Thurnscoe") +
+           y = 3.53, label = "Thurnscoe", colour = text_col,
+           family = "Barlow") +
   annotate("text", x = edu[which(edu$town11nm == "Great Yarmouth BUASD"),]$education_score - .6, 
-           y = 2.39, label = "Great Yarmouth") +
+           y = 2.39, label = "Great Yarmouth", colour = text_col) +
   annotate("text", x = edu[which(edu$town11nm == "Basildon BUASD"),]$education_score - .8, 
-           y = 1.4, label = "Basildon") +
+           y = 1.4, label = "Basildon", colour = text_col) +
   annotate("text", x = edu[which(edu$town11nm == "Northwood BUASD"),]$education_score + .2, 
-           y = 3.53, label = "Northwood") +
+           y = 3.53, label = "Northwood", colour = text_col) +
   annotate("text", x = edu[which(edu$town11nm == "Harpenden BUA"),]$education_score + .6, 
-           y = 2.39, label = "Harpenden") +
+           y = 2.39, label = "Harpenden", colour = text_col) +
   annotate("text", x = edu[which(edu$town11nm == "Sutton Coldfield BUASD"),]$education_score + 1.5, 
-           y = 1.35, label = "Sutton Coldfield") +
+           y = 1.35, label = "Sutton Coldfield", colour = text_col) +
   labs(x = "Educational attainment", 
        y = "",
        title = "Smaller, higher income towns have higher educational attainment",
@@ -131,14 +133,17 @@ edu %>%
   theme(
     plot.title = element_text(hjust = 0.5), ## center title
     plot.subtitle = element_text(hjust = 0.5), ## center subtitle
-    legend.position = "bottom")
+    legend.position = "bottom",
+    text = element_text(colour = text_col,
+                        family = "Barlow")) 
+
 
 #######################################################################
 ### Save Image ##########################################################
 #######################################################################
 
-ggsave(plot = le_line,
-       filename = "le_line.png", 
+ggsave(plot = edu_dot,
+       filename = "edu_dot.png", 
        dpi = 350, height = 5, width = 7.5, units = "in",
        bg = 'white')
 

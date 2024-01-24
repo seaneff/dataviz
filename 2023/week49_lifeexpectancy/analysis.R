@@ -63,7 +63,7 @@ le_line <- data %>%
   geom_line() +
   scale_color_manual(values = color_palette) +
   ## specify titles and captions
-  labs(title = "Life expectancy depends on country income (and always has)",
+  labs(title = "Life expectancy consistently depends on country income",
        x = "",
        y = "Average life expectancy\n(years)",
        subtitle = "Life expectency data, per country, from 1950-present",
@@ -89,8 +89,10 @@ ggsave(plot = le_line,
        bg = 'white')
 
 #######################################################################
-### Save GIF ##########################################################
+### Stop recording and save GIF #######################################
 #######################################################################
+
+gg_stop_recording()
 
 gg_playback(
   name = file.path("figure_versions/figure_versions.gif"),

@@ -51,3 +51,8 @@ New data are posted every Monday morning. You can use these data to create a vis
 
 ---
 
+![Dotplot showing levels of educational attainment in English towns, by town size and income level](2024/week4_uk_education/edu_dot.png)
+
+---
+
+

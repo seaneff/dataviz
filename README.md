@@ -55,4 +55,8 @@ New data are posted every Monday morning. You can use these data to create a vis
 
 ---
 
+![Map showing the % of the population, per county, that has broadband internet access](2024/otherdata5_tidycensus/broadband.png)
+
+---
+
 

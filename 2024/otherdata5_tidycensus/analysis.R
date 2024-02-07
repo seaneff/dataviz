@@ -60,19 +60,20 @@ county_full$pct_bins <- cut(round(county_full$pct, 2) , breaks = c(0.1, 0.2, 0.3
 ### Specify colors ####################################################
 #######################################################################
 
-palette <- sequential_hcl(4, "Mint")
+palette <- sequential_hcl(5, "Mint")
 text_col <- "grey5"
 
 #######################################################################
 ### Generate figure ###################################################
 #######################################################################
 
-broadband_map <- ggplot(data = county_full,
+broadband_map <- 
+ggplot(data = county_full,
        mapping = aes(x = long, y = lat, fill = pct_bins, group = group)) +
   geom_polygon(color = "gray90", linewidth = 0.05) + 
   coord_equal() +
   theme_map() +
-  scale_fill_manual(values = palette,
+  scale_fill_manual(values = rev(palette)[-1],
                     labels = c("<20%", "20-29%", "30-39%", ">40%")) +
   labs(title = "Broadband internet access (2022)",
        fill = "% population with broadband internet") +

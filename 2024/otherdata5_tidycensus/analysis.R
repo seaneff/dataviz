@@ -78,7 +78,7 @@ broadband_map <- ggplot(data = county_full,
        fill = "% population with broadband internet") +
   theme(legend.position = "bottom",
         legend.box = "horizontal",
-        plot.title = element_text(face = "bold"),
+        plot.title = element_text(hjust = 0.5),
         text = element_text(colour = text_col, family = "Barlow")) +
   guides(fill = guide_legend(title.position = "top", title.hjust = 0.5))
 

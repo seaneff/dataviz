@@ -62,5 +62,8 @@ New data are posted every Monday morning. You can use these data to create a vis
 ![Linechart showing the number of World Heritage Sites in Scandanavian Countries in 2004 and 2022](2024/week6_heritage_sites/heritage_lines.png)
 
 ---
+![Linechart showing US valentines day spending on flowers, candy, and greeting cards over time](2024/week7_valentines/valentines_day_spend.png)
+
+---
 
 

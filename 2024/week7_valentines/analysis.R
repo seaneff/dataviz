@@ -61,7 +61,7 @@ lines <- historical_spending %>%
   filter(variable != "Clothing") %>%
   mutate(variable = recode(variable, GreetingCards = "Greeting cards")) %>%
   ggplot(aes(x = Year, y = value, color = variable, group = variable)) +
-  labs(y = "Average amount spent ($ USD)", 
+  labs(y = "Average spending\n($ USD)", 
        x = "",
        title = "How much money do Americans spend on Valentines Day?",
        subtitle = "Average Valentines Day spending over time",
@@ -79,8 +79,8 @@ lines <- historical_spending %>%
     text = element_text(colour = text_col,
                         family = font)) +
     scale_x_continuous(breaks = pretty_breaks()) +
-    geom_textline(aes(label = variable, hjust = variable), spacing = 60, family = font) +
-    scale_hjust_manual(values = c(.6, .6, .81)) 
+    geom_textline(aes(label = variable, hjust = variable), spacing = 10, family = font) +
+    scale_hjust_manual(values = c(.6, .6, .36)) 
 
 #######################################################################
 ### Save Image ##########################################################

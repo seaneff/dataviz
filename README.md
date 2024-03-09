@@ -66,4 +66,6 @@ New data are posted every Monday morning. You can use these data to create a vis
 
 ---
 
+![Scatterplot showing US county broadband internet access rates by median household income](2024/otherdata6_income_internet/rural_income_broadband.png)
 
+---

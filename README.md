@@ -73,3 +73,4 @@ New data are posted every Monday morning. You can use these data to create a vis
 ![Stacked barplot showing admission types for inflammatory bowel disease in KY before and after Medicaid expansion](2024/otherdata_8_medicaid/admission_type.png)
 
 ---
+

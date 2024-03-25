@@ -24,7 +24,7 @@ library(patchwork) ## to combine plots
 ## based on data from table 3 in the publication
 admission_type <- data.frame(
   type = factor(c("elective", "urgent", "other", "elective", "urgent", "other"), levels = c("elective", "urgent", "other")),
-  time = factor(c("pre-expansion", "pre-expansion", "pre-expansion", "post-expansion", "post-expansion", "post-expansion"), levels = c("pre-expansion", "post-expansion")),
+  time = factor(c("pre-expansion\n(2009-2013)", "pre-expansion\n(2009-2013)", "pre-expansion\n(2009-2013)", "post-expansion\n(2014-2020)", "post-expansion\n(2014-2020)", "post-expansion\n(2014-2020)"), levels = c("pre-expansion\n(2009-2013)", "post-expansion\n(2014-2020)")),
   count = c(1604, 1480, 302, 18427, 3874, 1954),
   pct = c(.474, .437, .09, .76, .16, .08)
 )
@@ -33,7 +33,7 @@ admission_type <- data.frame(
 ## error in last percent in the original table
 admission_source <- data.frame(
   type = factor(c("clinic", "emergency room", "other", "clinic", "emergency room", "other"), levels = c("clinic", "emergency room", "other")),
-  time = factor(c("pre-expansion", "pre-expansion", "pre-expansion", "post-expansion", "post-expansion", "post-expansion"), levels = c("pre-expansion", "post-expansion")),
+  time = factor(c("pre-expansion\n(2009-2013)", "pre-expansion\n(2009-2013)", "pre-expansion\n(2009-2013)", "post-expansion\n(2014-2020)", "post-expansion\n(2014-2020)", "post-expansion\n(2014-2020)"), levels = c("pre-expansion\n(2009-2013)", "post-expansion\n(2014-2020)")),
   count = c(2540, 442, 404, 21935, 106, 2214),
   pct = c(.75, .131, .12, .904, .004, .091)
 )
@@ -57,51 +57,33 @@ gg_record(
 
 admission_type_fig <- ggplot(admission_type, aes(x = time, y = pct, fill = type, label = type)) +
   geom_bar(stat = "identity", position = "stack") +
-  geom_text(size = 4, position = position_stack(vjust = 0.5)) +
-  labs(title = "Medicaid expansion and treatment of inflammatory bowel disease",
-       subtitle = "Healthcare utilization outcomes for inflammatory bowel disease encounters\npre and post Medicaid expansion in Kentucky",
+  geom_text(size = 2.5, position = position_stack(vjust = 0.5),
+            family = "Barlow", 
+            color = c("gray5", "white", "white", "gray5", "white", "white")) +
+  labs(title = "Medicaid expansion\nand inflammatory bowel disease (IBD)",
+       subtitle = "Admission types for IBD encounters\npre- and post- Medicaid expansion in Kentucky",
        x = "",
        y = "% encounters") +
   scale_y_continuous(labels = scales::percent) +
   scale_fill_manual(values = c("#be96a1", "#72466e", "#31242f")) +
   theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5, size = rel(1), face = "bold"),
-        plot.sub = element_text(hjust = 0.5, size = rel(1)),
+  theme(plot.title = element_text(hjust = 0.5, size = rel(0.8), face = "bold"),
+        plot.sub = element_text(hjust = 0.5, size = rel(0.8)),
         text = element_text(colour = "grey5", family = "Barlow"),
-        axis.title = element_text(size = rel(1)),
-        axis.text = element_text(size = rel(1)),
+        axis.title = element_text(size = rel(0.7)),
+        axis.text = element_text(size = rel(0.7)),
         legend.position = "none")
 
 admission_type_fig
 
 #######################################################################
-### Generate figure: admission source #################################
-#######################################################################
-
-admission_source_fig <- ggplot(admission_source, aes(x = time, y = pct, fill = type, label = type)) +
-  geom_bar(stat = "identity", position = "stack") +
-  geom_text(size = 4, position = position_stack(vjust = 0.5)) +
-  labs(title = "Medicaid expansion and treatment of inflammatory bowel disease",
-       subtitle = "Healthcare utilization outcomes for inflammatory bowel disease encounters\npre and post Medicaid expansion in Kentucky",
-       x = "",
-       y = "% encounters") +
-  scale_y_continuous(labels = scales::percent) +
-  theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5, size = rel(1), face = "bold"),
-        plot.sub = element_text(hjust = 0.5, size = rel(1)),
-        text = element_text(colour = "grey5", family = "Barlow"),
-        axis.title = element_text(size = rel(1)),
-        axis.text = element_text(size = rel(1)),
-        legend.position = "none")
-
-#######################################################################
 ### Save figure #######################################################
 #######################################################################
 
-#ggsave(plot = urban_rural,
-#       filename = "rural_income_broadband.png", 
-#       dpi = 350, height = 1080, width = 1080, units = "px",
-#       bg = 'white')
+ggsave(plot = admission_type_fig,
+       filename = "admission_type.png", 
+       dpi = 350, height = 3, width = 3.1, units = "in",
+       bg = 'white')
 
 #######################################################################
 ### Stop recording and save GIF #######################################

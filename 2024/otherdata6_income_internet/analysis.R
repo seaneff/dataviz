@@ -1,9 +1,4 @@
 #######################################################################
-### Background ########################################################
-#######################################################################
-
-
-#######################################################################
 ### Load required libraries, fonts, and keys ##########################
 #######################################################################
 
@@ -26,6 +21,7 @@ options(scipen = 10000)
 #######################################################################
 
 ## urban/rural designations from USDA
+## assumes working directory is set to source file location
 urban_rural <- read_excel("data/Ruralurbancontinuumcodes2023.xlsx")
 names(urban_rural) <- c("fips", "state","county", "population", "rucc", "description")
 
@@ -73,6 +69,7 @@ county_full$color_category <- ifelse(county_full$rucc <= 3, "Metro area", "Nonme
 
 palette <- rev(c("#c7522a", "#d68a58", "#e5c185", "#f0daa5", "#fbf2c4", "#b8cdab",
              "#74a892", "#3a978c", "#008585"))
+
 text_col <- "grey5"
 
 #######################################################################

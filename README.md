@@ -61,11 +61,15 @@ New data are posted every Monday morning. You can use these data to create a vis
 
 ---
 
+<p align="center" width="100%">
 <img src = "2024/otherdata6_income_internet/rural_income_broadband.png" alt = "Scatterplot showing US county broadband internet access rates by median household income" width = "1080"/>
+</p>
 
 ---
 
-<img src = "2024/otherdata9_gotmortality/survival_curve.png" alt = "Survival curve showing mortality in Games of Thrones Seasons 1-8" width = "1080"/>
+<p align="center" width="100%">
+<img src = "2024/otherdata9_gotmortality/survival_curve.png" alt = "Survival curve showing mortality in Games of Thrones Seasons 1-8" width = "600"/>
+</p>
 
 ---
 

@@ -133,5 +133,5 @@ ggforest(model = cox_model) +
 
 ggsave(plot = figure,
        filename = "survival_curve.png", 
-       dpi = 350, height = 4, width = 6, units = "in",
+       dpi = 350, height = 4, width = 5, units = "in",
        bg = 'white')

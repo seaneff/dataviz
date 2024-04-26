@@ -21,11 +21,6 @@ New data are posted every Monday morning. You can use these data to create a vis
 
 ---
 
-
-![Bar chart showing sales data by age bracket during Diwali](2023/week46_diwali/diwali_stacked_bar.png)
-
----
-
 ![Figure illustrating the percentage of annual statewide votes for the US House of Representatives, by party (1976-2006)](2023/week45_electionresults/pct_votes_by_state.png)
 
 ---
@@ -70,7 +65,9 @@ New data are posted every Monday morning. You can use these data to create a vis
 
 ---
 
-![Stacked barplot showing admission types for inflammatory bowel disease in KY before and after Medicaid expansion](2024/otherdata_8_medicaid/admission_type.png)
+<img src = "2024/otherdata9_gotmortality/survival_curve.png.png" alt = "Survival curve showing mortality in Games of Thrones Seasons 1-8" width = "1080"/>
 
 ---
+
+
 

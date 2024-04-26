@@ -65,7 +65,7 @@ New data are posted every Monday morning. You can use these data to create a vis
 
 ---
 
-<img src = "2024/otherdata9_gotmortality/survival_curve.png.png" alt = "Survival curve showing mortality in Games of Thrones Seasons 1-8" width = "1080"/>
+<img src = "2024/otherdata9_gotmortality/survival_curve.png" alt = "Survival curve showing mortality in Games of Thrones Seasons 1-8" width = "1080"/>
 
 ---
 

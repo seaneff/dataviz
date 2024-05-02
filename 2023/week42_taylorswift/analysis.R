@@ -60,18 +60,18 @@ valence_vs_danceability <- taylor_album_songs %>%
        y = "",
        title = "Which Taylor Swift songs are most danceable?",
        subtitle = "Exploring happier vs. sadder TSwift songs based on their danceability",
-       caption = "Valence and Danceability assessed based on Spotify API") +
+       caption = "Valence and Danceability assessed based on Spotify API\nVisualization by Steph Eaneff\nstepheaneff.com") +
   theme_minimal() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         legend.position = "none",
         text = element_text(colour = "grey20", family = "Barlow"),
-        plot.title = element_text(hjust = 0.5, size = rel(1.5), face = "bold"), 
-        plot.subtitle = element_text(hjust = 0.5, size = rel(1.3)),
-        axis.text.x = element_markdown(size = rel(1.5)),
-        axis.text.y = element_markdown(size = rel(1.5)),
-        axis.title = element_text(size = rel(1.5)),
-        plot.caption = element_text(size = rel(1))) +
+        plot.title = element_text(hjust = 0.5, size = rel(1.3), face = "bold"), 
+        plot.subtitle = element_text(hjust = 0.5, size = rel(0.95)),
+        axis.text.x = element_markdown(size = rel(1.1)),
+        axis.text.y = element_markdown(size = rel(1.1)),
+        axis.title = element_text(size = rel(1.1)),
+        plot.caption = element_text(size = rel(0.6))) +
   scale_x_continuous(breaks = c(0.4, .8),
                      labels = c("**Less danceable**<br>(per Spotify)", 
                                 "**More danceable**<br>(per Spotify)")) +
@@ -80,11 +80,11 @@ valence_vs_danceability <- taylor_album_songs %>%
                                 "**Higher valence**<br>(e.g., happy, cheerful, euphoric)")) +
   scale_alpha(range = c(0.3, 1)) +
   scale_color_gradient(low = "#0000FF", high = "#EA5F94") +
-  geom_text_repel(size = 3, min.segment.length = 0.1, family = "Barlow")
+  geom_text_repel(size = 2.8, min.segment.length = 0.1, family = "Barlow")
 valence_vs_danceability
 
 ggsave(plot = valence_vs_danceability,
        filename = "valence_vs_danceability.png", 
-       dpi = 350, height = 4, width = 8, units = "in",
+       dpi = 350, height = 4, width = 6.5, units = "in",
        bg = 'white')
 

@@ -36,11 +36,6 @@ library(ggtext) ## for combining bold and not bold fonts on axis label
 library(readxl) ## to read in excel files
 library(colorspace) ## to lighten colors
 
-## to review current list of options, if needed
-#font_families_google()
-
-font_add_google("Barlow")
-
 #######################################################################
 ### Load data #########################################################
 #######################################################################
@@ -57,7 +52,6 @@ horror$year <-  format(as.Date(horror$published, format="%d/%m/%Y"),"%Y")
 #######################################################################
 
 category_palette <- c("#af5909", "#be780c", "#608357", "#055D66", "#052c66", "#66055D", "#660513")
-#lighten_amount <- seq(0, 1, length = 7)[1:6] ## instead make a custom range
 lighten_amount <- c(0, 0.4, 0.8, 0.8, 0.8)
 
 #######################################################################
@@ -177,7 +171,8 @@ circle_bar <- counts %>%
   # add text showing the value of each line plotted above
   ggplot2::annotate("text", x = rep(max(counts$id), 5), y = seq(from = 0, to = 40, by = 10), 
                     label = paste(seq(from = 0, to = 40, by = 10), "%", sep = ""),
-                    color = "gray50", size = rel(2.5) , angle = 0, hjust = 1.2) +
+                    color = "gray50", size = rel(2.5) , angle = 0, hjust = 1.2,
+                    family = "Barlow") +
   
   ## plot bars
   geom_bar(aes(x = id, y = pct*100, fill = bar_color), stat = "identity", alpha = 1) +
@@ -189,7 +184,7 @@ circle_bar <- counts %>%
   ## specify titles and captions
   labs(title = "We are terrified of death, disease, creepy food, and insects",
        subtitle = "Frequently mentioned creepy topics in urban legends (1997-2023)",
-       caption = "Based on analysis of data from Snopes horror legends (1997-2023)\npercents calculated as percent of 253 horror urban legends that mentioned a given topic based on inductive coding") + 
+       caption = "Based on analysis of data from Snopes horror legends (1997-2023)\npercents calculated as percent of 253 horror urban legends that mentioned a given topic based on inductive coding\nVisualization by Steph Eaneff") + 
   
   ## specify theme
   theme_minimal() +
@@ -198,24 +193,24 @@ circle_bar <- counts %>%
          axis.text = element_blank(), ## avoid weird polar axis
          axis.title = element_blank(), ## avoid x and y axis labels
          panel.grid = element_blank(), ## no grid
-         plot.title = element_text(hjust = 0.5, face = "bold", size = rel(1.1)), ## center title, make it bold
-         plot.subtitle = element_text(hjust = 0.5, size = rel(1.1)), ## center subtitle
-         plot.caption = element_text(size = rel(0.65))) + ## make caption comparably smaller 
+         plot.title = element_text(hjust = 0.5, face = "bold", size = rel(1.3)), ## center title, make it bold
+         plot.subtitle = element_text(hjust = 0.5, size = rel(1.2)), ## center subtitle
+         plot.caption = element_text(size = rel(0.6))) + ## make caption comparably smaller 
   
   ## add labels on top of the bars
   geom_text(data = label_data, aes(x = id, y = pct*100, label = label_factor, hjust = hjust, color = category), 
-            size = rel(2.5), 
+            size = rel(3.2), 
             angle = label_data$angle, 
             inherit.aes = FALSE ) +
   
   # Add base line information
    geom_segment(data = base_data, aes(x = start, y = -5, xend = end, yend = -5, color = category), 
                 alpha = 0.8, 
-                size = 0.6, inherit.aes = FALSE)  +
+                linewidth = 0.6, inherit.aes = FALSE)  +
   
   ## Add category labels
    geom_text(data = base_data, aes(x = title, y = bump, label = category, color = category),
-             alpha = 0.8,  size = rel(2.75), 
+             alpha = 0.8,  size = rel(3), 
              inherit.aes = FALSE) +
   
   ## allow colors to be input as part of the data

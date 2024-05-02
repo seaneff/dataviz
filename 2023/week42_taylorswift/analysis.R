@@ -60,7 +60,7 @@ valence_vs_danceability <- taylor_album_songs %>%
        y = "",
        title = "Which Taylor Swift songs are most danceable?",
        subtitle = "Exploring happier vs. sadder TSwift songs based on their danceability",
-       caption = "Valence and Danceability assessed based on Spotify API\nVisualization by Steph Eaneff\nstepheaneff.com") +
+       caption = "Valence and Danceability assessed based on Spotify API\nVisualization by Steph Eaneff") +
   theme_minimal() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),

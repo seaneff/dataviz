@@ -9,15 +9,21 @@ New data are posted every Monday morning. You can use these data to create a vis
 
 ## Data Viz Examples
 
-![Figure illustrating the relationship between valence and danceability for Taylor Swift songs, highlighting some of the most and least danceable songs, as well as some of the happiest and saddest songs](2023/week42_taylorswift/valence_vs_danceability.png)
+<p align="center" width="100%">
+<img src = "2023/week42_taylorswift/valence_vs_danceability.png" alt = "Scatterplot illustrating the relationship between valence and danceability for Taylor Swift songs, highlighting some of the most and least danceable songs, as well as some of the happiest and saddest songs" width = "80%" height = "80%"/>
+</p>
 
 ---
 
-![Figure illustrating risk of pulmonary embolism across a number of risk factors](2023/week43_risk/pe_risk.png)
+<p align="center" width="100%">
+<img src = "2023/week43_risk/pe_risk.png" alt = "Cleveland dot plot illustrating risk of pulmonary embolism across a number of risk factors" width = "80%" height = "80%"/>
+</p>
 
 ---
 
-![Figure illustrating key themes in Snopes horror urban legends](2023/week44_horror_legends/scary_snopes.png)
+<p align="center" width="100%">
+<img src = "2023/week44_horror_legends/scary_snopes.png" alt = "Bar chart in circular form illustrating key themes in Snopes horror urban legends" width = "80%" height = "80%"/>
+</p>
 
 ---
 

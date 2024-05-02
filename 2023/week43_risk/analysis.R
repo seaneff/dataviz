@@ -2,10 +2,16 @@
 ### Background ########################################################
 #######################################################################
 
-## Definitions of key data points
+## From TidyTuesday:
+## This dataset contains 100 simulated patient's medical history features and the 
+## predicted 1-year risk of 14 outcomes based on each patient's medical history features. 
+## The predictions used real logistic regression models developed on a large real world healthcare
+## dataset.
+## Data dictionary available online here: https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-10-24/readme.md
 
-## inspiration
+## Inspiration:
 ## https://uc-r.github.io/cleveland-dot-plots
+
 
 #######################################################################
 ### Load required libraries and fonts #################################
@@ -16,11 +22,7 @@
 library(tidytuesdayR) ## to read in data for tidytuesday
 library(tidyverse) ## to format/restructure/plot data
 library(colorspace) ## to lighten colors
-
-## to review current list of options, if needed
-#font_families_google()
-
-font_add_google("Barlow")
+library(ggtext) ## to use markdown in ggplot
 
 #######################################################################
 ### Load data #########################################################
@@ -113,7 +115,6 @@ average_risk_info <- data.frame(exposure = character(),
                                 mean_risk_unexposed = numeric(),
                                 stringsAsFactors = FALSE)
 
-
 for (f in features){
   for(o in outcomes){
     exposure_info <- risk[,f] == 1
@@ -198,17 +199,17 @@ cleveland <- average_risk_info %>%
   labs(title = "Vascular and kidney disease increase risk of pulmonary embolism",
        subtitle = "Average risk of pulmonary embolism in a synthetic dataset",
        color = "", ## No legend title
-       caption = "Based on synthetic data among adults ages 20-64 years of age\nrisk scores calculated based on logistic regression models developed on a large real world healthcare dataset") + 
+       caption = "Based on synthetic data among adults ages 20-64 years of age\nrisk scores calculated based on logistic regression models developed on a large real world healthcare dataset\nVisualization by Steph Eaneff") + 
   xlab("Average risk of pulmonary embolism (next year)") +
   ylab("") +
   theme_minimal() +
   theme(text = element_text(colour = "grey5", family = "Barlow"),
         plot.title = element_markdown(hjust = 0.5, ## center the title,
-                                      size = rel(1.25),  ## make it bigger
+                                      size = rel(1.3),  ## make it bigger
                                       face = "bold"), ## make it bold
         plot.subtitle = element_markdown(hjust = 0.5, ## center the subtitle
-                                         size = rel(1)), ## placeholder -- doesn't change size
-        plot.caption = element_text(size = rel(0.75)),
+                                         size = rel(1.1)), ## placeholder -- doesn't change size
+        plot.caption = element_text(size = rel(0.6)),
         legend.position = "top") + ## legend on top) +
   scale_color_manual(values = colors) +
   scale_x_continuous(labels = scales::percent_format(scale = 1))

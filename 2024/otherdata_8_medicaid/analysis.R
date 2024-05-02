@@ -1,6 +1,7 @@
-
+#######################################################################
 ### Background ########################################################
 #######################################################################
+
 # Original publication
 # Levy BE, Mangino AA, Castle JT, Stephens WA, McDonald HG, Patel JA, Beck SJ, 
 # Bhakta AS. Effect of Medicaid expansion on inflammatory bowel disease and 

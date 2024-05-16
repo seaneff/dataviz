@@ -25,27 +25,12 @@ library(ggtext) ## for combining bold and not bold fonts on axis label
 library(camcorder) ## to record R images
 library(stringr) ## for nice title case
 
-## to review current list of options, if needed
-#font_families_google()
-
-font_add_google("Barlow")
-
 #######################################################################
 ### Load data #########################################################
 #######################################################################
 
 tuesdata <- tidytuesdayR::tt_load(2023, week = 45)
 house <- tuesdata$house
-
-#######################################################################
-### Define user-generated functions ###################################
-#######################################################################
-
-## Return second highest number in a vector #
-secondHighest <-  function(x) {
-  sorted <- unique(x)
-  sort(sorted, decreasing = TRUE)[2L]
-}
 
 #######################################################################
 ### Format data #######################################################
@@ -100,17 +85,6 @@ data_wide$state_reorder <- factor(data_wide$state_label,
                                              bl[30:33], "Texas", bl[34:37], "Florida"))
 
 
-# to record versions of the plot, see https://github.com/thebioengineer/camcorder
-# didn't do this, save for next time
-# gg_record(
-#   dir = file.path(getwd()), # where to save the recording
-#   device = "png", # device to use to save images
-#   width = 12,      # width of saved image
-#   height = 8,     # height of saved image
-#   units = "in",   # units for width and height
-#   dpi = 300       # dpi to use when saving image
-# )
-
 us_facet <- data_wide %>%
   filter(state_reorder != "Minnesota") %>%
   ggplot(aes(x = year, y = percent, color = label)) +
@@ -122,12 +96,15 @@ us_facet <- data_wide %>%
         strip.background = element_blank(), ## no grey background
         axis.line = element_blank(), ## no axis line
         axis.ticks = element_blank(), ## no axis ticks
-        plot.title = element_markdown(hjust = 0.5, ## center the title,
-                                      size = rel(2),  ## make it bigger
+        plot.title = element_text(hjust = 0.5, ## center the title,
+                                      size = rel(2.25),  ## make it bigger
                                       face = "bold"), ## make it bold
-        plot.subtitle = element_markdown(hjust = 0.5, ## center the subtitle
-                                         size = rel(1.5)), ## make it bigger
-        plot.caption = element_text(size = rel(0.75)),## make caption comparably smaller
+        plot.subtitle = element_text(hjust = 0.5, ## center the subtitle
+                                         size = rel(1.75)), ## make it bigger
+        strip.text.x = element_text(size = rel(1.2)),
+        legend.text = element_text(size = rel(1.25)), 
+        legend.title =element_text(size = rel(1.25)),  
+        plot.caption = element_text(size = rel(0.8)),## make caption comparably smaller
         legend.direction = "horizontal", ## legend options listed horizontally
         legend.position = "top" ## legend on top
         ) +
@@ -139,18 +116,12 @@ us_facet <- data_wide %>%
        title = "Votes for the US House of Representatives",
        subtitle = "% of annual statewide votes for the house, by party (1976-2006)",
        caption = "Data from Minnesota and Washington DC not available\nNote that not all parties have candidates in each district or each election year. Percentages reflect totals of statewide votes\nand not specific margins, given that elections occur at the district level") 
-us_facet
+
+#######################################################################
+### Export graphic ####################################################
+#######################################################################
 
 ggsave(plot = us_facet,
        filename = "pct_votes_by_state.png", 
        dpi = 350, height = 8, width = 12, units = "in",
        bg = 'white')
-
-# didn't do this, save for next time
-# gg_playback(
-#   name = file.path(tempdir(), "recording", "image_versions.gif"),
-#   first_image_duration = 5,
-#   last_image_duration = 15,
-#   frame_duration = .4,  
-#   image_resize = 800)
-#gg_stop_recording()

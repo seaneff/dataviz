@@ -16,18 +16,20 @@ New data are posted every Monday morning. You can use these data to create a vis
 ---
 
 <p align="center" width="100%">
-<img src = "2023/week43_risk/pe_risk.png" alt = "Cleveland dot plot illustrating risk of pulmonary embolism across a number of risk factors" width = "80%" height = "80%"/>
+<img src = "2023/week43_risk/pe_risk.png" alt = "Cleveland dot plot illustrating risk of pulmonary embolism across a number of risk factors" width = "100%" height = "100%"/>
 </p>
 
 ---
 
 <p align="center" width="100%">
-<img src = "2023/week44_horror_legends/scary_snopes.png" alt = "Bar chart in circular form illustrating key themes in Snopes horror urban legends" width = "80%" height = "80%"/>
+<img src = "2023/week44_horror_legends/scary_snopes.png" alt = "Bar chart in circular form illustrating key themes in Snopes horror urban legends" width = "100%" height = "100%"/>
 </p>
 
 ---
 
-![Figure illustrating the percentage of annual statewide votes for the US House of Representatives, by party (1976-2006)](2023/week45_electionresults/pct_votes_by_state.png)
+<p align="center" width="100%">
+<img src = "2023/week45_electionresults/pct_votes_by_state.png" alt = "Figure illustrating the percentage of annual statewide votes for the US House of Representatives, by party (1976-2006)" width = "100%" height = "100%"/>
+</p>
 
 ---
 

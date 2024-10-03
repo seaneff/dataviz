@@ -15,7 +15,6 @@
 library(tidytuesdayR) ## to read in data for tidytuesday
 library(tidyverse) ## to format/restructure/plot data
 library(ggrepel) ## for help positioning scatterplot labels
-library(taylor) ## for custom taylor swift palettes
 library(showtext) ## for custom fonts
 library(ggtext) ## for combining bold and not bold fonts on axis label
 

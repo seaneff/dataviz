@@ -21,7 +21,8 @@ library(ggtext) ## for combining bold and not bold fonts on axis label
 ## to review current list of options, if needed
 #font_families_google()
 
-font_add_google("Barlow")
+font_add_google(name = "Barlow")
+font_add_google(name = "Source Sans 3")
 
 #######################################################################
 ### Load data #########################################################
@@ -64,11 +65,14 @@ valence_vs_danceability <- taylor_album_songs %>%
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         legend.position = "none",
-        text = element_text(colour = "grey20", family = "Barlow"),
-        plot.title = element_text(hjust = 0.5, size = rel(1.3), face = "bold"), 
+        text = element_text(colour = "grey20", 
+                            family = "Source Sans 3"),
+        plot.title = element_text(hjust = 0.5, size = rel(1.3), 
+                                  family = "Barlow",
+                                  face = "bold"), 
         plot.subtitle = element_text(hjust = 0.5, size = rel(0.95)),
-        axis.text.x = element_markdown(size = rel(1.1)),
-        axis.text.y = element_markdown(size = rel(1.1)),
+        axis.text.x = element_markdown(),
+        axis.text.y = element_markdown(),
         axis.title = element_text(size = rel(1.1)),
         plot.caption = element_text(size = rel(0.6))) +
   scale_x_continuous(breaks = c(0.4, .8),
@@ -80,10 +84,13 @@ valence_vs_danceability <- taylor_album_songs %>%
   scale_alpha(range = c(0.3, 1)) +
   scale_color_gradient(low = "#0000FF", high = "#EA5F94") +
   geom_text_repel(size = 2.8, min.segment.length = 0.1, family = "Barlow")
-valence_vs_danceability
 
-ggsave(plot = valence_vs_danceability,
-       filename = "valence_vs_danceability.png", 
-       dpi = 350, height = 4, width = 6.5, units = "in",
-       bg = 'white')
+
+ggsave(filename = "valence_vs_danceability.png", 
+         dpi = 350, height = 4, width = 6.5, units = "in",
+         bg = 'white',
+         ## if you use device  ragg::agg_png, ggsave doesn't propertly
+         ## display the Source Sans Font
+         ## see discussion here: https://github.com/tidyverse/ggplot2/issues/4824
+         device = grDevices::png)
 

@@ -1,1 +1,0 @@
-<h1 align="center">Romeo and Juliet</h1>

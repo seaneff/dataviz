@@ -3,6 +3,7 @@
 #######################################################################
 
 # Holt M, MacGibbon J, Smith A, Broady T, Davis M, Newman C. Trust in Digital Health dataset. Zenodo; 2022. 
+## License: Creative Commons Zero v1.0 Universal 
 
 # "The Trust in Digital Health project was conducted by the Centre for Social Research in Health, 
 # UNSW Sydney in collaboration with community organisations to assess views of digital health systems 

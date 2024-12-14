@@ -51,9 +51,12 @@ rsconnect/
 ## DS Store
 .DS_Store
 
-## Data files or citations
+# Data files or citations
 *.dta
 *.pdf
 
-## Files used to generate GIFs
+# Files used to generate GIFs
 **/figure_versions/*
+
+# Other OS files
+*.DS_Store

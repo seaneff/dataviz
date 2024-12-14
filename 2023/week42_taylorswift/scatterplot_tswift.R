@@ -17,6 +17,7 @@ library(tidyverse) ## to format/restructure/plot data
 library(ggrepel) ## for help positioning scatterplot labels
 library(showtext) ## for custom fonts
 library(ggtext) ## for combining bold and not bold fonts on axis label
+library(sysfonts) ## to manage fonts
 
 ## to review current list of options, if needed
 #font_families_google()
@@ -65,8 +66,7 @@ valence_vs_danceability <- taylor_album_songs %>%
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         legend.position = "none",
-        text = element_text(colour = "grey20", 
-                            family = "Source Sans 3"),
+        text = element_text(colour = "grey20", family = "Source Sans 3"),
         plot.title = element_text(hjust = 0.5, size = rel(1.3), 
                                   family = "Barlow",
                                   face = "bold"), 

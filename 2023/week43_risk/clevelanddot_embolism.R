@@ -5,13 +5,11 @@
 ## From TidyTuesday:
 ## This dataset contains 100 simulated patient's medical history features and the 
 ## predicted 1-year risk of 14 outcomes based on each patient's medical history features. 
-## The predictions used real logistic regression models developed on a large real world healthcare
-## dataset.
+## The predictions used real logistic regression models developed on a large real world healthcare dataset.
 ## Data dictionary available online here: https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-10-24/readme.md
 
 ## Inspiration:
 ## https://uc-r.github.io/cleveland-dot-plots
-
 
 #######################################################################
 ### Load required libraries and fonts #################################
@@ -23,6 +21,13 @@ library(tidytuesdayR) ## to read in data for tidytuesday
 library(tidyverse) ## to format/restructure/plot data
 library(colorspace) ## to lighten colors
 library(ggtext) ## to use markdown in ggplot
+library(sysfonts) ## to manage fonts
+
+## to review current list of options, if needed
+#font_families_google()
+
+font_add_google(name = "Barlow")
+font_add_google(name = "Source Sans 3")
 
 #######################################################################
 ### Load data #########################################################
@@ -180,9 +185,6 @@ average_risk_info$exposure_label <- factor(average_risk_info$exposure_label,
 ### Generate figure ###################################################
 #######################################################################
 
-colors <- c("Patients with\nrisk factors" = "#427D9D",
-            "Patients without\nrisk factors" = lighten("#427D9D", amount = 0.5))
-
 cleveland <- average_risk_info %>%
   filter(risk_label == "Pulmonary Embolism") %>%
   arrange(desc(mean_risk_exposed-mean_risk_unexposed)) %>%
@@ -192,26 +194,27 @@ cleveland <- average_risk_info %>%
   geom_segment(aes(y = exposure_label, yend = exposure_label, x = mean_risk_exposed, xend = mean_risk_unexposed), color = "grey80") +
   
   ## the plot the dots
-  geom_point(aes(y = exposure_label, x = mean_risk_exposed, color = "Patients with\nrisk factors"), size = 3 ) +
-  geom_point(aes(y = exposure_label, x = mean_risk_unexposed, color = "Patients without\nrisk factors"), size = 3 ) +
+  geom_point(aes(y = exposure_label, x = mean_risk_exposed, fill = "Patients with\nrisk factors"), size = 3, pch = 21, color = "grey5") +
+  geom_point(aes(y = exposure_label, x = mean_risk_unexposed, fill = "Patients without\nrisk factors"), size = 3, pch = 21, color = "grey5") +
  
   ## specify titles and captions
-  labs(title = "Vascular and kidney disease increase risk of pulmonary embolism",
+  labs(title = "Patients with vascular and kidney disease are at<br>increased risk of experiencing pulmonary embolism",
        subtitle = "Average risk of pulmonary embolism in a synthetic dataset",
-       color = "", ## No legend title
+       fill = "", ## No legend title
        caption = "Based on synthetic data among adults ages 20-64 years of age\nrisk scores calculated based on logistic regression models developed on a large real world healthcare dataset\nVisualization by Steph Eaneff") + 
   xlab("Average risk of pulmonary embolism (next year)") +
   ylab("") +
   theme_minimal() +
-  theme(text = element_text(colour = "grey5", family = "Barlow"),
+  theme(text = element_text(colour = "grey5", family = "Source Sans 3"),
         plot.title = element_markdown(hjust = 0.5, ## center the title,
                                       size = rel(1.3),  ## make it bigger
+                                      family = "Barlow",
                                       face = "bold"), ## make it bold
         plot.subtitle = element_markdown(hjust = 0.5, ## center the subtitle
                                          size = rel(1.1)), ## placeholder -- doesn't change size
         plot.caption = element_text(size = rel(0.6)),
         legend.position = "top") + ## legend on top) +
-  scale_color_manual(values = colors) +
+  scale_fill_manual(values = c("#427D9D", lighten("#427D9D", amount = 0.5))) +
   scale_x_continuous(labels = scales::percent_format(scale = 1))
 
 ggsave(plot = cleveland,

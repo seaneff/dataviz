@@ -61,17 +61,7 @@ New data are posted every Monday morning. You can use these data to create a vis
 ![Map showing the % of the population, per county, that has broadband internet access](2024/otherdata5_tidycensus/broadband.png)
 
 ---
-
-![Linechart showing the number of World Heritage Sites in Scandanavian Countries in 2004 and 2022](2024/week6_heritage_sites/heritage_lines.png)
-
----
 ![Linechart showing US valentines day spending on flowers, candy, and greeting cards over time](2024/week7_valentines/valentines_day_spend.png)
-
----
-
-<p align="center" width="100%">
-<img src = "2024/otherdata6_income_internet/rural_income_broadband.png" alt = "Scatterplot showing US county broadband internet access rates by median household income" width = "1080"/>
-</p>
 
 ---
 

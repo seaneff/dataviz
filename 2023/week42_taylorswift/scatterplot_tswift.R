@@ -17,7 +17,6 @@ library(tidyverse) ## to format/restructure/plot data
 library(ggrepel) ## for help positioning scatterplot labels
 library(showtext) ## for custom fonts
 library(ggtext) ## for combining bold and not bold fonts on axis label
-library(sysfonts) ## to manage fonts
 
 ## to review current list of options, if needed
 #font_families_google()
@@ -89,7 +88,7 @@ valence_vs_danceability <- taylor_album_songs %>%
 ggsave(filename = "valence_vs_danceability.png", 
          dpi = 350, height = 4, width = 6.5, units = "in",
          bg = 'white',
-         ## if you use device  ragg::agg_png, ggsave doesn't propertly
+         ## if you use device  ragg::agg_png, ggsave doesn't properly
          ## display the Source Sans Font
          ## see discussion here: https://github.com/tidyverse/ggplot2/issues/4824
          device = grDevices::png)

@@ -21,7 +21,7 @@ library(tidytuesdayR) ## to read in data for tidytuesday
 library(tidyverse) ## to format/restructure/plot data
 library(colorspace) ## to lighten colors
 library(ggtext) ## to use markdown in ggplot
-library(sysfonts) ## to manage fonts
+library(showtext) ## to manage fonts
 
 ## to review current list of options, if needed
 #font_families_google()
@@ -219,6 +219,10 @@ cleveland <- average_risk_info %>%
 
 ggsave(plot = cleveland,
        filename = "pe_risk.png", 
-       dpi = 350, height = 6, width = 8, units = "in",
-       bg = 'white')
+       dpi = 350, height = 6.2, width = 8, units = "in",
+       bg = 'white',
+       ## if you use device  ragg::agg_png, ggsave doesn't properly
+       ## display the Source Sans Font
+       ## see discussion here: https://github.com/tidyverse/ggplot2/issues/4824
+       device = grDevices::png)
 

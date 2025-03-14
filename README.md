@@ -71,8 +71,9 @@ New data are posted every Monday morning. You can use these data to create a vis
 
 ---
 
----
-![Linechart declining fertility rates, globally, from 1950 to 2023](2025/birth_rates/world_figure.png)
+<p align="center" width="100%">
+<img src = "2025/birth_rates/world_figure.png" alt = "Linechart declining fertility rates, globally, from 1950 to 2023" width = "600"/>
+</p>
 
 ---
 
